@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const user =  require('../models/user')
 const {check} = require("express-validator/check")
+const passport = require('passport')
 
 router.get('/register' , (req , res)=>{
     res.render('register' , { success: req.session.success , errors : req.session.errors})
@@ -9,7 +10,7 @@ router.get('/register' , (req , res)=>{
 router.get('/login',(req , res)=>{
     res.render('login' ,  {success :req.session.success })
 })
-
+//-------------------------------------------------register a new user
 router.post('/register', (req , res)=>{
             req.check('firstname' , "First Name Required.").notEmpty()
             req.check('lastname' , "Last Name is Required").notEmpty()
@@ -44,6 +45,13 @@ router.post('/register', (req , res)=>{
             })
     })
 
+//----------------------------------------------------------------------------------Log in user
+router.post('/login',passport.authenticate('local', {
+
+    failureRedirect : '/login',
+    successRedirect : '/success',
+    failureFlash : true
+}))
 
 
 //fetch All the user
