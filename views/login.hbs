@@ -1,4 +1,11 @@
-    <div class="frm-tg border">
+{{> loginh}}
+<div class="frm-tg border">
+    {{#if success}}
+        <div class="alert alert-danger"><h4 align="center">Success :)</h4></div>
+    {{/if}}
+        {{#if success_msg}}
+            <div class="alert alert-danger">{{success_msg}}</div>
+        {{/if}}
         {{#if error}}
             <div class="alert alert-danger">{{error}}</div>
         {{/if}}

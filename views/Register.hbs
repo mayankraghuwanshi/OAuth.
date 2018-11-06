@@ -1,8 +1,8 @@
+   {{> Register}}
     <div class="frm-tg border">
 
-        {{# if success}}
+        {{#if success}}
             <div class="alert alert-danger">Success</div>
-
         {{else}}
             {{# if errors}}
                {{# each errors}}
@@ -14,27 +14,27 @@
         <form action = '/user/register' method="post" >
             <div class="form-group">
                 <label for="First Name">First Name</label>
-                <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="First Name"
+                <input type="text" class="form-control" aria-describedby="emailHelp"
                 name="firstname">
             </div>
             <div class="form-group">
                 <label for="Last Name">Last Name</label>
-                <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Last Name"
+                <input type="text" class="form-control"  aria-describedby="emailHelp"
                 name="lastname">
             </div>
             <div class="form-group">
-                <label for="First Name">username</label>
-                <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="username"
+                <label for="First Name">User Name</label>
+                <input type="text" class="form-control" aria-describedby="emailHelp"
                        name="username">
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email"
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                 name="email">
             </div>
             <div class="form-group">
                 <label for="Password">Password</label>
-                <input type="password" class="form-control" id="password" aria-describedby="emailHelp" placeholder="Password"
+                <input type="password" class="form-control" id="password" aria-describedby="emailHelp"
                 name="password">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>

@@ -1,10 +1,10 @@
-const router = require('express').Router()
-const user =  require('../models/user')
-const {check} = require("express-validator/check")
+const router   = require('express').Router()
+const user     =  require('../models/user')
+const {check}  = require("express-validator/check")
 const passport = require('../passport/passport')
 
 router.get('/register' , (req , res)=>{
-    res.render('register' , { success: req.session.success , errors : req.session.errors})
+    res.render('Register' , { success: req.session.success , errors : req.session.errors})
 })
 
 router.get('/login',(req , res)=>{
@@ -51,8 +51,19 @@ router.post('/register', (req , res)=>{
 router.post('/login',
     passport.authenticate('local', { successRedirect: '/', failureRedirect: '/user/login', failureFlash: true }),
     function (req, res) {
-        res.redirect('/');
+        res.render('/' , {user : req.user});
     });
+
+//--------------------------------------------------------------------------------------Log out
+router.get('/logout', function (req, res) {
+    req.logout();
+
+    req.flash('success_msg', 'You are logged out');
+
+    res.redirect('/user/login');
+});
+
+
 
 
 //fetch All the user

@@ -27,10 +27,9 @@ passport.use(new LocalStrategy(function (username, password, done) {
             return done(null, false, {message: "User not found!"})
         }
         if (data.password !== password) {
-
             return done(null, false, {message: "Wrong password"})
         }
-        return done(null, user)
+        return done(null, data)
     }).catch((err) => {
         return done(err)
     })

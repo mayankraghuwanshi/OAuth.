@@ -48,6 +48,8 @@ server.use(flash())
 //.........................................................set some messages for flash to show
 server.use(function (req, res, next) {
     res.locals.error = req.flash('error');
+    res.locals.success_msg = req.flash('success_msg');
+    res.locals.user = req.user || null;
     next();
 });
 
