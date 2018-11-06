@@ -25,6 +25,9 @@ server.set('view engine' , 'hbs')
 server.get('/',(req , res , next)=>{
     res.render('index' , {title: "home"})
 })
+
+server.use('/user', require('./routes/user'))
+
 server.listen(1221,function () {
     console.log('http://localhost:1221')
 })
