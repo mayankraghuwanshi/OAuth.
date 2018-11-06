@@ -8,19 +8,21 @@ const postSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    author: String,
     comments :[{
         comment:{
             type: String,
 
         },
-        author : {
+        commentor : {
             type : String,
         }
     }
     ]
+
 })
 
-const post = modile.exports = mongoose.model('post' , postSchema)
+const post = module.exports = mongoose.model('post' , postSchema)
 module.exports.getComment = function (id , callback) {
     const query = {_id : id};
     post.findOne(query , callback)
