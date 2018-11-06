@@ -2,32 +2,31 @@ const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
 const user = require('../models/user')
 
-passport.serializeUser(function (user, done) {
-    done(null, user.username)
+passport.serializeUser(function (data, done) {
+    done(null, data.username)
 })
 
 passport.deserializeUser(function (username, done) {
-    Users.findOne({
+    user.findOne({
         username: username
-    }).then((user) => {
-        if (!user) {
-            return done(new Error("No such user"))
+    }).then((data) => {
+        if (!data) {
+            return done(new Error("User not Found"))
         }
-        return done(null, user)
+        return done(null, data)
     }).catch((err) => {
         done(err)
     })
 })
 
 passport.use(new LocalStrategy(function (username, password, done) {
-    Users.findOne({
+    user.findOne({
         username: username
-    }).then((user) => {
-
-        if (!user) {
-            return done(null, false, {message: "No such user"})
+    }).then((data) => {
+        if (!data) {
+            return done(null, false, {message: "User not found!"})
         }
-        if (user.password !== password) {
+        if (data.password !== password) {
 
             return done(null, false, {message: "Wrong password"})
         }
@@ -37,4 +36,5 @@ passport.use(new LocalStrategy(function (username, password, done) {
     })
 }))
 
-exports = module.exports = passport
+
+module.exports = passport

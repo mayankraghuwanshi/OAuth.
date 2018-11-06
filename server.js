@@ -45,6 +45,11 @@ server.use(passport.session());
 
 //..........................................................flash
 server.use(flash())
+//.........................................................set some messages for flash to show
+server.use(function (req, res, next) {
+    res.locals.error = req.flash('error');
+    next();
+});
 
 
 server.use(express.static(path.join(__dirname , 'public')))

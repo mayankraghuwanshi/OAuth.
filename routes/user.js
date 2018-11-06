@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const user =  require('../models/user')
 const {check} = require("express-validator/check")
-const passport = require('passport')
+const passport = require('../passport/passport')
 
 router.get('/register' , (req , res)=>{
     res.render('register' , { success: req.session.success , errors : req.session.errors})
@@ -14,6 +14,7 @@ router.get('/login',(req , res)=>{
 router.post('/register', (req , res)=>{
             req.check('firstname' , "First Name Required.").notEmpty()
             req.check('lastname' , "Last Name is Required").notEmpty()
+            req.check('username' , "Username is Required").notEmpty()
             req.checkBody('email', 'Enter valid Email').isEmail();
             req.check('password' , "Please Enter a Valid Password").isLength({min:4})
             var errors = req.validationErrors();
@@ -30,6 +31,7 @@ router.post('/register', (req , res)=>{
             var data = new user({
                 firstname: req.body.firstname,
                 lastname : req.body.lastname,
+                username : req.body.username,
                 email    : req.body.email,
                 password : req.body.password
             })
@@ -46,12 +48,11 @@ router.post('/register', (req , res)=>{
     })
 
 //----------------------------------------------------------------------------------Log in user
-router.post('/login',passport.authenticate('local', {
-
-    failureRedirect : '/login',
-    successRedirect : '/success',
-    failureFlash : true
-}))
+router.post('/login',
+    passport.authenticate('local', { successRedirect: '/', failureRedirect: '/user/login', failureFlash: true }),
+    function (req, res) {
+        res.redirect('/');
+    });
 
 
 //fetch All the user
