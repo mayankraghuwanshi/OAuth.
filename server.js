@@ -3,7 +3,8 @@ const server = express()
 const mongo = require('mongodb')
 const mongoose = require('mongoose')
 const hbs = require('express-handlebars')
-
+const expressValidator = require('express-validator')
+cosnt session = require('express-session')
 mongoose.connect("mongodb://localhost/auth")
 
 //setting up parser
@@ -11,6 +12,7 @@ server.use(express.json())
 server.use(express.urlencoded({
     extended: true
 }))
+server.use(expressValidator())
 
 //settin up viwe engine
 server.engine('hbs', hbs({
