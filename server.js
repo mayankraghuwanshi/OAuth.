@@ -4,7 +4,7 @@ const mongo = require('mongodb')
 const mongoose = require('mongoose')
 const hbs = require('express-handlebars')
 const expressValidator = require('express-validator')
-cosnt session = require('express-session')
+const session = require('express-session')
 mongoose.connect("mongodb://localhost/auth")
 
 //setting up parser
@@ -22,6 +22,9 @@ server.engine('hbs', hbs({
 }))
 server.set('views' ,  __dirname + '/views')
 server.set('view engine' , 'hbs')
+server.use(session({
+    secret: "hello" , saveUninitialized: false , resave:false
+}))
 
 
 server.get('/',(req , res , next)=>{

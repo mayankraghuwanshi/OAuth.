@@ -1,6 +1,18 @@
 <div class="row">
     <div class="col-md-4"></div>
     <div class="col-md-4 mt-5 p-5">
+        {{# if success}}
+            <div class="alert alert-danger">Success</div>
+
+            </section>
+        {{else}}
+            {{# if errors}}
+               {{# each errors}}
+                            <div class="alert alert-danger">{{ this.msg }}</div>
+                        {{/each}}
+
+            {{/if}}
+
         <form action = '/user/register' method="post" >
             <div class="form-group">
                 <label for="First Name">First Name</label>
@@ -23,7 +35,7 @@
                 name="password">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+        </form>{{/if}}
     </div>
     <div class="col-md-4"></div>
 

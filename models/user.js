@@ -24,4 +24,9 @@ const userSchema = mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('user', userSchema);
+const user = module.exports = mongoose.model('user', userSchema);
+
+module.exports.finduserbyEmail = function(email , callback){
+    const query = {email : email}
+    user.findOne(query , callback)
+}
