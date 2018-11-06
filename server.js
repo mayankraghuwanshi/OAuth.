@@ -1,5 +1,6 @@
 const express = require('express')
 const server = express()
+const path = require('path')
 const dotenv = require('dotenv').config()
 const mongo = require('mongodb')
 const mongoose = require('mongoose')
@@ -13,7 +14,9 @@ server.use(express.json())
 server.use(express.urlencoded({
     extended: true
 }))
+// to validate eg- isEmail()
 server.use(expressValidator())
+
 
 //settin up viwe engine
 server.engine('hbs', hbs({
@@ -23,10 +26,12 @@ server.engine('hbs', hbs({
 }))
 server.set('views' ,  __dirname + '/views')
 server.set('view engine' , 'hbs')
+
+//to use session and send messages through session
 server.use(session({
     secret: process.env.SECRET , saveUninitialized: false , resave:false
 }))
-
+server.use(express.static(path.join(__dirname , 'public')))
 
 server.get('/',(req , res , next)=>{
     res.render('index' , {title: "home"})

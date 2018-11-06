@@ -7,7 +7,7 @@ router.get('/register' , (req , res)=>{
 })
 
 router.get('/login',(req , res)=>{
-    res.render('login')
+    res.render('login' ,  {success :req.session.success })
 })
 
 router.post('/register', (req , res)=>{
@@ -34,12 +34,14 @@ router.post('/register', (req , res)=>{
             })
             data.save().then((data)=>{
                 console.log(data)
+                res.redirect('/user/login')
             }).catch((err)=>{
-                console.error(err)
+                console.log("Error happend in action = user/register method = post")
+                req.session.success = false
+                console.log(err)
+                req.session.errors = [{ msg:"Email is alredy taken"}]
+                res.redirect('/user/register')
             })
-            res.redirect('/user/register')
-
-
     })
 
 
