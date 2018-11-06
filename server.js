@@ -29,5 +29,5 @@ server.get('/',(req , res , next)=>{
 server.use('/user', require('./routes/user'))
 
 server.listen(1221,function () {
-    console.log('http://localhost:1221')
+    console.log('http://localhost:1221/user/login\nhttp://localhost:1221/user/register')
 })
