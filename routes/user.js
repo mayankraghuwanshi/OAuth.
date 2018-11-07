@@ -6,12 +6,6 @@ const passport = require('../passport/passport')
 router.get('/register' , (req , res)=>{
     res.render('Register' , { success: req.session.success_register , errors : req.session.errors_register})
 })
-
-router.get('/login',(req , res)=>{
-    res.render('login' , { error: req.session.error_login})
-})
-
-
 //-------------------------------------------------register a new user
 router.post('/register', (req , res)=>{
             req.check('firstname' , "First Name Required.").notEmpty()
@@ -49,11 +43,15 @@ router.post('/register', (req , res)=>{
     })
 
 //----------------------------------------------------------------------------------Log in user
+
+router.get('/login',(req , res)=>{
+    res.render('login' , { error: req.session.error_login})
+})
+
 router.post('/login',
-    passport.authenticate('local', { successRedirect: '/', failureRedirect: '/user/login', failureFlash: true }),
-    function (req, res) {
-        res.render('/' , {user : req.user});
-    });
+    passport.authenticate('local', { successRedirect: '/post/add', failureRedirect: '/user/login', failureFlash: true })
+
+);
 
 //--------------------------------------------------------------------------------------Log out
 router.get('/logout', function (req, res) {
