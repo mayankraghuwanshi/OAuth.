@@ -16,5 +16,6 @@ router.post('/add/', async (req , res)=>{
           await User.save();
        res.send(Post)
 })
+router.use('/comment', require("./comment") )
 
 module.exports = router
