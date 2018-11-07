@@ -59,9 +59,15 @@ server.use(express.static(path.join(__dirname , 'public')))
 
 
 
-server.get('/',(req , res , next)=>{
-    res.render('index' , {title: "home"})
-})
+function Logcheck(req , res ,next) {
+    if(!req.isAuthenticated()){
+        res.render("login" , {error: "Please Login first"})
+    }
+    else{
+    next()}
+}
+
+server.get('/',Logcheck,require('./routes/home'))
 //------------------------------------------------------------------------user
 server.use('/user', require('./routes/user'))
 //-------------------------------------------------------------------------post
@@ -69,5 +75,5 @@ server.use('/post' , require('./routes/post'))
 
 
 server.listen( process.env.PORT ,function () {
-    console.log('http://localhost:1221/user/login\nhttp://localhost:1221/user/register')
+    console.log('http://localhost:1221/home')
 })

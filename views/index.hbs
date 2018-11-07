@@ -1,1 +1,21 @@
 {{> mainheader}}
+{{#if user}}
+    {{user._id}}
+{{/if}}
+<form action = '/post/add' method="post"  class="container mt-5">
+    <div class="form-group">
+        <label for="First Name">Title</label>
+        <input type="text" class="form-control" aria-describedby="emailHelp"
+               name="title">
+    </div>
+    <div class="form-group">
+        <label for="Last Name">Content</label>
+        <input type="text" class="form-control"  aria-describedby="emailHelp"
+               name="content">
+    </div>
+    <div class="form-group">
+        <input type="hidden" class="form-control"  aria-describedby="emailHelp"
+               name="user" value="{{user._id}}">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
