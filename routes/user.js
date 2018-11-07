@@ -10,6 +10,8 @@ router.get('/register' , (req , res)=>{
 router.get('/login',(req , res)=>{
     res.render('login' , { error: req.session.error_login})
 })
+
+
 //-------------------------------------------------register a new user
 router.post('/register', (req , res)=>{
             req.check('firstname' , "First Name Required.").notEmpty()

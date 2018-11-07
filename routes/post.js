@@ -5,7 +5,7 @@ const user = require('../models/user')
 const {check}  = require("express-validator/check")
 
 router.get('/add' , (req , res)=>{
-    res.render('index' , { error : req.session.error_post })
+    res.render('addpost' , { error : req.session.error_post })
 })
 
 router.post('/add', async (req , res)=>{
@@ -27,17 +27,20 @@ router.post('/add', async (req , res)=>{
         User.posts.push(Post._it)
         await User.save()
         req.flash('success_msg' , "Post hase been recorded.")
+        console.log("New post has been added :) ")
         res.redirect('/post/add')
     }
     })
 router.get('/show' , (req , res)=>{
-    post.find({}).populate("user").then((data)=>{
-        res.send(data)
+    post.find({}).populate(["user" , "comments"]).then((data)=>{
+        console.log("All Posts are being fetched.")
+        console.log(data)
+        res.render('post' , {data : data})
     }).catch((err)=>{
         res.send(err)
     })
 })
 
-router.use('/comment', require("./comment") )
+router.use('/', require("./comment") )
 
 module.exports = router

@@ -66,10 +66,10 @@ function Logcheck(req , res ,next) {
         res.redirect("/user/login")
     }
     else{
-    next()}
+        next()}
 }
 
-server.get('/',require('./routes/home'))
+server.get('/', Logcheck, require('./routes/index'))
 //------------------------------------------------------------------------user
 server.use('/user', require('./routes/user'))
 //-------------------------------------------------------------------------post
