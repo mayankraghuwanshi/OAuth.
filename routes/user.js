@@ -4,11 +4,11 @@ const {check}  = require("express-validator/check")
 const passport = require('../passport/passport')
 
 router.get('/register' , (req , res)=>{
-    res.render('Register' , { success: req.session.success , errors : req.session.errors})
+    res.render('Register' , { success: req.session.success_register , errors : req.session.errors_register})
 })
 
 router.get('/login',(req , res)=>{
-    res.render('login' ,  {success :req.session.success })
+    res.render('login' , { error: req.session.error_login})
 })
 //-------------------------------------------------register a new user
 router.post('/register', (req , res)=>{
@@ -19,12 +19,12 @@ router.post('/register', (req , res)=>{
             req.check('password' , "Please Enter a Valid Password").isLength({min:4})
             var errors = req.validationErrors();
             if(errors){
-                req.session.errors = errors;
-                req.session.success = false;
+                req.session.errors_register = errors;
+                req.session.success_register = false;
                 res.redirect("/user/register")
             }
             else{
-                req.session.success= true
+                req.session.success_register= true
             }
 
 
@@ -36,13 +36,12 @@ router.post('/register', (req , res)=>{
                 password : req.body.password
             })
             data.save().then((data)=>{
-                console.log(data)
+                req.flash('success_msg', 'Now you can login');
                 res.redirect('/user/login')
             }).catch((err)=>{
-                console.log("Error happend in action = user/register method = post")
-                req.session.success = false
+                req.session.success_register = false
                 console.log(err)
-                req.session.errors = [{ msg:"Something wend wrong :("}]
+                req.session.errors_register = [{ msg:"Email is alredy taken"}]
                 res.redirect('/user/register')
             })
     })

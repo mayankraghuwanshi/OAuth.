@@ -1,7 +1,15 @@
 {{> mainheader}}
-{{#if user}}
-    {{user._id}}
+{{# if success_msg}}
+    <div class="alert alert-success container mt-5">{{success_msg}}</div>
 {{/if}}
+{{# if error}}
+    {{# each error}}
+        <div class="alert alert-danger container">{{ this.msg }}</div>
+    {{/each}}
+
+{{/if}}
+
+
 <form action = '/post/add' method="post"  class="container mt-5">
     <div class="form-group">
         <label for="First Name">Title</label>
@@ -15,7 +23,7 @@
     </div>
     <div class="form-group">
         <input type="hidden" class="form-control"  aria-describedby="emailHelp"
-               name="user" value="{{user._id}}">
+               name="user" value="5be2d0cedfa01f1e6c5708b0">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>

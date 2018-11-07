@@ -26,3 +26,4 @@ module.exports.getComment = function (id , callback) {
     post.findOne(query , callback)
 
 }
+
