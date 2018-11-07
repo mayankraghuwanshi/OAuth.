@@ -29,8 +29,15 @@ router.post('/add', async (req , res)=>{
         req.flash('success_msg' , "Post hase been recorded.")
         res.redirect('/post/add')
     }
-
+    })
+router.get('/show' , (req , res)=>{
+    post.find({}).populate("user").then((data)=>{
+        res.send(data)
+    }).catch((err)=>{
+        res.send(err)
+    })
 })
+
 router.use('/comment', require("./comment") )
 
 module.exports = router
