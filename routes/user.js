@@ -42,7 +42,7 @@ router.post('/register', (req , res)=>{
                 console.log("Error happend in action = user/register method = post")
                 req.session.success = false
                 console.log(err)
-                req.session.errors = [{ msg:"Email is alredy taken"}]
+                req.session.errors = [{ msg:"Something wend wrong :("}]
                 res.redirect('/user/register')
             })
     })

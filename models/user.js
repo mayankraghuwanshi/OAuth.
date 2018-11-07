@@ -28,6 +28,16 @@ const userSchema = mongoose.Schema({
         type: Date,
         default : Date.now()
     }
+    ,
+    posts:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref : 'post',
+    }],
+    comments : [{
+        type : mongoose.Schema.Types.ObjectId,
+        ref : "comment"
+    }]
+
 })
 
 const user = module.exports = mongoose.model('user', userSchema);

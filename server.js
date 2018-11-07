@@ -21,6 +21,7 @@ server.use(express.urlencoded({
     extended: true
 }))
 
+
 //.........................................................to validate eg- isEmail()
 server.use(expressValidator())
 
@@ -56,6 +57,8 @@ server.use(function (req, res, next) {
 
 server.use(express.static(path.join(__dirname , 'public')))
 
+
+
 server.get('/',(req , res , next)=>{
     res.render('index' , {title: "home"})
 })
@@ -63,6 +66,7 @@ server.get('/',(req , res , next)=>{
 server.use('/user', require('./routes/user'))
 //-------------------------------------------------------------------------post
 server.use('/post' , require('./routes/post'))
+
 
 server.listen( process.env.PORT ,function () {
     console.log('http://localhost:1221/user/login\nhttp://localhost:1221/user/register')
