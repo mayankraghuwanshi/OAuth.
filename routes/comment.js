@@ -18,7 +18,6 @@ if(errors){
     const User = await user.findOne({_id:req.body.user})
     const Post = await post.findOne({_id:req.body.post})
     console.log(User)
-    const er_msg = [];
     if(User && Post) {
         const Comment = new comment({
             user     : req.body.user,

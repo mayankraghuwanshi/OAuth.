@@ -1,4 +1,5 @@
 {{> mainheader}}
+<script src="https://cdn.ckeditor.com/4.11.0/standard/ckeditor.js"></script>
 {{# if success_msg}}
     <div class="alert alert-success container mt-5">{{success_msg}}</div>
 {{/if}}
@@ -18,8 +19,8 @@
     </div>
     <div class="form-group">
         <label for="Last Name">Content</label>
-        <input type="text" class="form-control"  aria-describedby="emailHelp"
-               name="content">
+        <textarea class="form-control"
+                  name="content"></textarea>
     </div>
     <div class="form-group">
         <input type="hidden" class="form-control"  aria-describedby="emailHelp"
@@ -27,5 +28,10 @@
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+<script>
+    CKEDITOR.replace( 'content' );
+
+</script>
+
 
 
