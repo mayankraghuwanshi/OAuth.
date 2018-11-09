@@ -16,13 +16,11 @@ router.post('/comment' , async (req , res)=>{
         res.render('comment' , {errors})
     }
     else{
-        Post.comments.push({comment : req.content , _id:req.body.user})
+        Post.comments.push({comment : req.body.content , _id:req.body.user , name : User.firstname})
         Post.save().then((data)=>{
+            console.log("comment has been added")
             res.render('comment' , {success : "Comment has been added :)"})
         })
-
-
-
     }
 
 })

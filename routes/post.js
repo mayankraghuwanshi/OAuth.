@@ -31,10 +31,10 @@ router.post('/add', async (req , res)=>{
     }
     })
 router.get('/show' , (req , res)=>{
-    post.find({}).populate(["comments" , "user"]).then((data)=>{
+    post.find({}).populate('user').then((data)=>{
         console.log("All Posts are being fetched.")
         console.log(data)
-        res.send(data)
+        res.render('post' , {data})
        // res.render('post' , {data : data})
     }).catch((err)=>{
         res.send(err)
