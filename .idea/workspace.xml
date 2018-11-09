@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2e9346c9-4dc9-4f49-9236-85989ea185fd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/routes/comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/comment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/post.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/post.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/post.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/post.hbs" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -57,16 +57,16 @@
           <entry key="css" value="184" />
           <entry key="env" value="238" />
           <entry key="gitignore" value="59" />
-          <entry key="hbs" value="2727" />
-          <entry key="js" value="18469" />
+          <entry key="hbs" value="2853" />
+          <entry key="js" value="18559" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key=".env file" value="86" />
           <entry key="CSS" value="184" />
-          <entry key="Handlebars/Mustache" value="2727" />
-          <entry key="JavaScript" value="18469" />
+          <entry key="Handlebars/Mustache" value="2853" />
+          <entry key="JavaScript" value="18559" />
           <entry key="PLAIN_TEXT" value="211" />
         </counts>
       </usages-collector>
@@ -83,20 +83,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/post.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="33" column="43" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
+            <state relative-caret-position="176">
+              <caret line="33" column="33" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/post.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+            <state relative-caret-position="185">
+              <caret line="31" column="51" selection-start-line="31" selection-start-column="51" selection-end-line="31" selection-end-column="51" />
+              <folding>
+                <element signature="e#1248#1254#0#HTML" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -104,8 +107,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/post.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="19" column="8" lean-forward="true" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="14" />
+            <state relative-caret-position="42">
+              <caret line="14" column="6" lean-forward="true" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -113,8 +116,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/comment.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
-              <caret line="18" column="47" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
+            <state relative-caret-position="516">
+              <caret line="25" column="2" selection-start-line="25" selection-start-column="2" selection-end-line="25" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -197,11 +200,11 @@
         <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/views/addpost.hbs" />
         <option value="$PROJECT_DIR$/views/comment.hbs" />
-        <option value="$PROJECT_DIR$/models/post.js" />
         <option value="$PROJECT_DIR$/models/user.js" />
-        <option value="$PROJECT_DIR$/views/post.hbs" />
-        <option value="$PROJECT_DIR$/routes/comment.js" />
         <option value="$PROJECT_DIR$/routes/post.js" />
+        <option value="$PROJECT_DIR$/models/post.js" />
+        <option value="$PROJECT_DIR$/routes/comment.js" />
+        <option value="$PROJECT_DIR$/views/post.hbs" />
       </list>
     </option>
   </component>
@@ -334,12 +337,12 @@
       <workItem from="1541625109980" duration="3061000" />
       <workItem from="1541685008255" duration="946000" />
       <workItem from="1541687214013" duration="685000" />
-      <workItem from="1541734010041" duration="3873000" />
+      <workItem from="1541734010041" duration="4786000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76255000" />
+    <option name="totallyTimeSpent" value="77168000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -359,14 +362,14 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32867134" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.39685315" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3339161" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39944133" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32960895" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.0506993" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.4353147" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -512,6 +515,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/models/post.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="14" column="6" lean-forward="true" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/post.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="33" column="33" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/views/comment.hbs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
@@ -521,29 +538,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/comment.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="18" column="47" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
+        <state relative-caret-position="516">
+          <caret line="25" column="2" selection-start-line="25" selection-start-column="2" selection-end-line="25" selection-end-column="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/post.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/post.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="19" column="8" lean-forward="true" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/post.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="33" column="43" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
+        <state relative-caret-position="185">
+          <caret line="31" column="51" selection-start-line="31" selection-start-column="51" selection-end-line="31" selection-end-column="51" />
+          <folding>
+            <element signature="e#1248#1254#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
