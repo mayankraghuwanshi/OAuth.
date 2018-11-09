@@ -1,0 +1,8 @@
+{{# if success}}
+    {{success}}
+{{/if}}
+{{# if errors}}
+    {{# each errors}}
+        {{this.msg}}
+    {{/each}}
+{{/if}}

@@ -13,7 +13,7 @@ const postSchema = mongoose.Schema({
         ref: "user",
         required: "User is required to add post "
     },
-    commments :[{
+    comments :[{
         type : mongoose.Schema.Types.ObjectId,
         ref: "comment"
     }]
