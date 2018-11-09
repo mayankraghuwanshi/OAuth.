@@ -1,6 +1,5 @@
 const router = require('express').Router()
 const post = require('../models/post')
-const comment = require('../models/comment')
 const user = require('../models/user')
 const {check}  = require("express-validator/check")
 
@@ -32,10 +31,11 @@ router.post('/add', async (req , res)=>{
     }
     })
 router.get('/show' , (req , res)=>{
-    post.find({}).populate(["user" , "comments"]).then((data)=>{
+    post.find({}).populate(["comments" , "user"]).then((data)=>{
         console.log("All Posts are being fetched.")
         console.log(data)
-        res.render('post' , {data : data})
+        res.send(data)
+       // res.render('post' , {data : data})
     }).catch((err)=>{
         res.send(err)
     })

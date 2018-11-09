@@ -9,12 +9,15 @@
     {{/if}}
     {{#if data}}
         {{# each data}}
-            <!--<h2>{{this.title}}</h2>-->
-            {{this.content}}
+            <h1>{{this.title}}</h1>
+            {{this.content}}<br>
             <small>{{this.user.firstname}}</small>
-            {{# each this.user.comments}}
+        {{# if this.comments}}
+            {{# each this.comments}}
                 <p>{{this.comment}}</p>
+                {{this.author}}
             {{/each}}
+        {{/if}}
         {{/each}}
     {{/if}}
 </div>

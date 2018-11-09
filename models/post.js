@@ -14,8 +14,13 @@ const postSchema = mongoose.Schema({
         required: "User is required to add post "
     },
     comments :[{
-        type : mongoose.Schema.Types.ObjectId,
-        ref: "comment"
+        comment : {
+            type : String
+        },
+        author : {
+            type:mongoose.Types.ObjectId,
+            ref: "user"
+        }
     }]
 })
 

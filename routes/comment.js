@@ -1,7 +1,6 @@
 const router = require('express').Router()
 const user = require('../models/user')
 const post = require('../models/post')
-const comment = require('../models/comment')
 const {check}  = require("express-validator/check")
 
 router.post('/comment' , async (req , res)=>{
@@ -17,16 +16,7 @@ router.post('/comment' , async (req , res)=>{
         res.render('comment' , {errors})
     }
     else{
-        const Comment = new comment({
-            content : req.body.content,
-            user : req.body.user,
-            post : req.body.post
-        })
-        await Comment.save().catch((err)=>{
-            res.render('comment' , errors = [{msg: "Can't save comment :( "}])
-        })
-        console.log(Post)
-        Post.commments.push(Comment._id)
+        Post.comments.push({comment : req.content , _id:req.body.user})
         Post.save().then((data)=>{
             res.render('comment' , {success : "Comment has been added :)"})
         })
